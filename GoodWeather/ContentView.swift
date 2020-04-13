@@ -18,7 +18,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack {
+        VStack(alignment: .center) {
             
             TextField("Enter city name",text: self.$weatherViewModel.cityName){
                 self.weatherViewModel.search()
@@ -32,7 +32,7 @@ struct ContentView: View {
                 .offset(y:100)
                 .padding()
             
-        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity,alignment: .center)
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             .background(Color.green)
             .edgesIgnoringSafeArea(.all)
     }

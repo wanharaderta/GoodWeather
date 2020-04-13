@@ -22,7 +22,7 @@ struct Weather : Decodable {
 //    "pressure": 1010,
 //    "humidity": 94
 
-    var temps: Double?
+    var temp: Double?
     var humidity:Double?
     
 }

@@ -38,8 +38,8 @@ class WeatherViewModel: ObservableObject {
     }
     
     var temperatur: String {
-        if let temp = self.weather.temps {
-            return String(format: "%.0f", temp)
+        if let temp = self.weather.temp {
+            return "\(String(format: "%.0f", temp - 273.15))°C"
         }else{
             return ""
         }
