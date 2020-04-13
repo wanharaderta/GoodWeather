@@ -9,8 +9,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var weatherViewModel: WeatherViewModel
+    
+    init() {
+        self.weatherViewModel = WeatherViewModel()
+    }
+    
     var body: some View {
-        Text("Hello, World!")
+        
+        VStack {
+            
+            TextField("Enter city name",text: self.$weatherViewModel.cityName){
+                self.weatherViewModel.search()
+            }.font(.custom("Arial", size: 50))
+                .padding()
+                .fixedSize()
+            
+            Text(self.weatherViewModel.temperatur)
+                .font(.custom("Arial", size: 100))
+                .foregroundColor(Color.white)
+                .offset(y:100)
+                .padding()
+            
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity,alignment: .center)
+            .background(Color.green)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -19,3 +43,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
